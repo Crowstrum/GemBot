@@ -1,0 +1,52 @@
+{
+  "name": "slack-standup-bot",
+  "version": "0.0.2",
+  "description": "Standup Bot for Slack",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run bot",
+    "bot": "node index.js",
+    "ci": "npm test && cat ./coverage/lcov.info | coveralls",
+    "unit-test": "istanbul cover --report lcov --dir ./coverage/ _mocha --recursive ./test --grep ./test/**/*.spec.js -- --colors --reporter spec",
+    "pretest": "jshint index.js ./src ./test && jscs index.js ./src ./test",
+    "test": "npm run unit-test --silent"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "keywords": [
+    "Slack",
+    "Standup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colestrode/botkit-cah.git"
+  },
+  "bugs": {
+    "url": "https://github.com/colestrode/slack-standup-bot/issues"
+  },
+  "homepage": "https://github.com/colestrode/slack-standup-bot#readme",
+  "author": "Cole Furfaro-Strode",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "0.2.2",
+    "botkit-storage-redis": "^1.0.0",
+    "express": "^4.13.3",
+    "lodash": "^4.13.0",
+    "moment": "^2.15.1",
+    "q": "^1.4.1",
+    "redis": "^2.5.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.1",
+    "jscs": "^3.0.2",
+    "jshint": "^2.9.1",
+    "mocha": "^3.0.0",
+    "proxyquire": "^1.7.3",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
+    "xunit-file": "1.0.0"
+  }
+}
